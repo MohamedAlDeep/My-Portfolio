@@ -56,7 +56,7 @@ export function Blog(){
                             >
                                 <div className='relative overflow-hidden'>
                                     <Image 
-                                    // src={post.image || ''}
+                                    src={''}
                                     alt={post.title}
                                     width={400}
                                     height={200}
