@@ -5,6 +5,8 @@ import { HeroSection } from "./components/Design/heroSection";
 import { About } from "./components/Design/about";
 import { Blog } from "./components/Design/blog";
 import { Projects } from "./components/Design/projects";
+import { Contact } from "./components/Design/contact";
+
 export default function Home() {
   return (
     <div>
@@ -13,6 +15,7 @@ export default function Home() {
       <About/>
       <Projects/>
       <Blog />
+      <Contact /> 
       <Footer/>     
     </div>
   );
