@@ -1,14 +1,20 @@
 import Airtable from "airtable";
+import { marked } from "marked";
 import { error } from "console";
 
 const base = new Airtable({ apiKey: process.env.AIRTABLE_SECRET }).base(process.env.AIRTABLE_BASE_ID || '');
 
+
+
+
 export async function single_blog(slug: string) {
+   
    const records = await base('Blogs').select({
       filterByFormula: `{slug} = '${slug.replace(/'/g, "\\'")}'`
    })
    .firstPage()
    if(records.length > 0){
+
       return records[0].fields      
    }else{
       return null
@@ -57,3 +63,10 @@ export async function get_projects(){
     return data
 }
 
+export async function convertMarkdown(raw_link: string) {
+   const data = await fetch(raw_link)
+
+   const final = await data.text()
+   const conv = marked.parse(final)
+   return conv
+}

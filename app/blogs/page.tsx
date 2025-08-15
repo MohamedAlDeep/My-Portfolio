@@ -1,3 +1,5 @@
+'use client'
+
 import { Navbar } from "../components/Design/Navbar";
 import { Footer } from "../components/Design/Footer";
 import { get_blogs } from "@/lib/airtable";
@@ -10,7 +12,7 @@ import { ArrowRight, Calendar, Clock } from 'lucide-react'
 
 export default async function Blogs(){
     const blogPosts = await get_blogs()
-  
+    
     return (
         <div>
             <Navbar/>
