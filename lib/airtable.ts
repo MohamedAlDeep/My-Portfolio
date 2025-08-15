@@ -3,12 +3,38 @@ import { error } from "console";
 
 const base = new Airtable({ apiKey: process.env.AIRTABLE_SECRET }).base(process.env.AIRTABLE_BASE_ID || '');
 
+export async function single_blog(slug: string) {
+   const records = await base('Blogs').select({
+      filterByFormula: `{slug} = '${slug.replace(/'/g, "\\'")}'`
+   })
+   .firstPage()
+   if(records.length > 0){
+      return records[0].fields      
+   }else{
+      return null
+   }
+}
+
 export async function get_blogs(){
-   base('Blogs').select({})
+   const data: any = []
+   await base('Blogs').select({})
    .eachPage((records, next) =>{
-      records.forEach((record ) => console.log(record.fields)) 
+      records.forEach((record) => data.push(
+         {
+            title: record.fields.title,
+            excerpt: record.fields.excerpt,
+            image: record.fields.image,
+            category: record.fields.category,
+            date: record.fields.date,
+            readTime: record.fields.readTime,
+            slug: record.fields.slug,
+            content: record.fields.content,
+         }
+      )) 
       next()
     }).catch((error) => console.log(error))
+
+    return data
 }
 
 export async function get_projects(){
