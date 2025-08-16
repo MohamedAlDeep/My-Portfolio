@@ -42,6 +42,7 @@ export function Navbar(){
                         )
                         }
                     </nav>
+                    
                     {/* <div className="hidden lg:flex items-center">
                         <Button
                         variant="outline"
