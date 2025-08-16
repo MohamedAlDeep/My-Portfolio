@@ -75,14 +75,14 @@ export function Navbar(){
                                         </Link>
                                     )
                                 )}
-                                <div className="pt-4 border-t border-gray-100">
+                                {/* <div className="pt-4 border-t border-gray-100">
                                     <Button
                                         variant="outline"
                                         className="w-full border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white bg-transparent"   
                                     >
-                                        Download CV
+                                        Download CV (In Progress)
                                     </Button>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     )}
