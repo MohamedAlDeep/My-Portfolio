@@ -77,7 +77,8 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
                     </header>
                     <div className="max-w-4xl mx-auto px-4">
                         <div 
-                            className="blog-content"
+                            className="blog-content-isolated"
+                            style={{ all: 'initial', fontFamily: 'inherit', color: 'inherit' }}
                             dangerouslySetInnerHTML={{ __html: content }} 
                         />
                     </div>

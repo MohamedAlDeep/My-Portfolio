@@ -1,5 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  
+  
   darkMode: ["class"],
   content: [
     './pages/**/*.{ts,tsx}',
@@ -77,4 +79,7 @@ module.exports = {
     require("tailwindcss-animate"),
     require('@tailwindcss/typography'),
   ],
+  corePlugins: {
+        preflight: false,
+  },
 }

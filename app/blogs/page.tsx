@@ -1,5 +1,3 @@
-'use client'
-
 import { Navbar } from "../components/Design/Navbar";
 import { Footer } from "../components/Design/Footer";
 import { get_blogs } from "@/lib/airtable";
@@ -34,34 +32,38 @@ export default async function Blogs(){
                             className='group overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1'
                             >
                                 <div className='relative overflow-hidden'>
-                                    <Image 
-                                    src={post.image}
-                                    alt={post.title}
-                                    width={400}
-                                    height={200}
-                                    className='w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300'
-                                    />
-                                    <Badge className='absolute top-4 left-4 bg-blue-600 hover:bg-blue-700' >{post.category}</Badge>
+                                    {post.image && (
+                                        <Image 
+                                        src={String(post.image)}
+                                        alt={String(post.title || 'Blog post')}
+                                        width={400}
+                                        height={200}
+                                        className='w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300'
+                                        />
+                                    )}
+                                    <Badge className='absolute top-4 left-4 bg-blue-600 hover:bg-blue-700' >
+                                        {String(post.category || 'General')}
+                                    </Badge>
                                 </div>
                                 <CardHeader>
                                     <CardTitle className='font-heading font-bold text-lg group-hover:text-blue-600 transition-colors line-clamp-2'>
-                                        {post.title}
+                                        {String(post.title || 'Untitled')}
                                     </CardTitle>
                                     <div className='flex items-center gap-4 text-sm text-muted-foreground'>
                                         <div className='flex items-center gap-1'>
                                             <Calendar className='h-4 w-4' />
-                                            {new Date(post.date.value).toLocaleDateString()}
+                                            {new Date(String(post.date.value || '')).toLocaleDateString()}
                                         </div>
                                         <div className='flex items-center gap-1'>
                                             <Clock className='h-4 w-4' />
-                                            {post.readTime}
+                                            {String(post.readTime || 'N/A')}
                                         </div>
                                     </div>
                                 </CardHeader>
 
                                 <CardContent className='space-y-4'>
                                     <p className='text-muted-foreground leading-relaxed line-clamp-3'>
-                                        {post.excerpt}
+                                        {String(post.excerpt || 'No excerpt available')}
                                     </p>
                                     <Button
                                     variant='ghost'

@@ -8,7 +8,7 @@ const base = new Airtable({ apiKey: process.env.AIRTABLE_SECRET }).base(process.
 
 
 export async function single_blog(slug: string) {
-   
+  
    const records = await base('Blogs').select({
       filterByFormula: `{slug} = '${slug.replace(/'/g, "\\'")}'`
    })
