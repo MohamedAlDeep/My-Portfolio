@@ -3,9 +3,9 @@ import { Github, Linkedin, Twitter, Mail } from "lucide-react"
 
 export function Footer(){
     const socialLinks = [
-        {icon: Github, href: '#', label: "Github"},
-        {icon: Linkedin, href: "#", label: "LinkedIn"},
-        {icon: Twitter, href: "#", label: "Twitter"},
+        {icon: Github, href: 'https://github.com/MohamedAlDeep/', label: "Github"},
+        {icon: Linkedin, href: "https://www.linkedin.com/in/mohamed-al-deep-b77aa8279/", label: "LinkedIn"},
+        
         {icon: Mail, href: "mailto:neondm@proton.me", label: "Email"}
     ]
  
@@ -47,24 +47,24 @@ export function Footer(){
 
                         <ul className="space-y-2">
                             <li>
-                                <Link href="#home" className="text-slate-300 hover:text-blue-400 transition-colors">
+                                <Link href="/#home" className="text-slate-300 hover:text-blue-400 transition-colors">
                                 Home
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#about" className="text-slate-300 hover:text-blue-400 transition-colors">
+                                <Link href="/#about" className="text-slate-300 hover:text-blue-400 transition-colors">
                                 About
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#projects"
+                                <Link href="/projects"
                                 className="text-slate-300 hover:text-blue-400 transition-colors"
                                 >
                                 Projects
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#blog" 
+                                <Link href="/blogs" 
                                 className="text-slate-300 hover:text-blue-400 transition-colors"
                                 >
                                     Blog
@@ -79,7 +79,7 @@ export function Footer(){
                         <ul className="space-y-2">
                             <li>
                                 <Link
-                                href="/blog/ai"
+                                href="/blogs/ai"
                                 className="text-slate-300 hover:text-blue-400 transition-colors"
                                 >
                                 AI & ML
@@ -87,7 +87,7 @@ export function Footer(){
                             </li>
                             <li>
                                 <Link
-                                href="/blog/software"
+                                href="/blogs/software"
                                 className="text-slate-300 hover:text-blue-400 transition-colors"
                                 >
                                     Software
@@ -95,7 +95,7 @@ export function Footer(){
                             </li>
                             <li>
                                 <Link
-                                href="/blog/iot"
+                                href="/blogs/iot"
                                 className="text-slate-300 hover:text-blue-400 transition-colors"
                                 >
                                 IoT
@@ -103,7 +103,7 @@ export function Footer(){
                             </li>
                             <li>
                                 <Link
-                                href="/blog/tutorials"
+                                href="/blogs/tutorials"
                                 className="text-slate-300 hover:text-blue-400 transition-colors">
                                     Tutorials
                                 </Link>

@@ -30,7 +30,7 @@ export function HeroSection(){
                         className='bg-foreground hover:bg-foreground/90 text-background font-medium px-8 py-3'
                         asChild
                         >
-                            <Link href='/research'>
+                            <Link href='/blogs'>
                                 View Research <ArrowRight className='ml-2 h-4 w-4'/>
                             </Link>
                         </Button>

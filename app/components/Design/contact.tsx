@@ -19,15 +19,15 @@ export function Contact(){
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-12'>
                     <div className='space-y-8'>
                         <div>
-                            <h3 className='font-heading font-bold text-2xl mb-6'>
+                            <h3 className='font-heading font-bold text-2xl mb-6 text-center lg:text-left'>
                                 Get in Touch
                             </h3>
-                            <div className='space-y-4'>
-                                <div className='flex items-center gap-4'>
+                            <div className='flex flex-col lg:flex-row gap-8 lg:gap-12 items-center lg:items-start justify-center lg:justify-start'>
+                                <div className='flex items-center gap-4 min-w-fit'>
                                     <div className='flex-shrink-0 w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center'>
                                         <Mail className='h-6 w-6 text-blue-600' />
                                     </div>
-                                    <div>
+                                    <div className='text-center lg:text-left'>
                                         <p className='font-semibold'>
                                             Email
                                         </p>
@@ -36,11 +36,11 @@ export function Contact(){
                                         </p>
                                     </div>
                                 </div>
-                                <div className='flex items-center gap-4'>
+                                <div className='flex items-center gap-4 min-w-fit'>
                                     <div className='flex-shrink-0 w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center'>
                                         <Phone className='h-6 w-6 text-blue-600' />
                                     </div>
-                                    <div>
+                                    <div className='text-center lg:text-left'>
                                         <p className='font-semibold'>
                                             Phone
                                         </p>
@@ -49,11 +49,11 @@ export function Contact(){
                                         </p>
                                     </div>
                                 </div>
-                                <div className='flex items-center gap-4'>
+                                <div className='flex items-center gap-4 min-w-fit'>
                                     <div className='flex-shrink-0 w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center'>
                                         <MapPin className='h-6 w-6 text-blue-600' />
                                     </div>
-                                    <div>
+                                    <div className='text-center lg:text-left'>
                                         <p className='font-semibold'>
                                             Location
                                         </p>
@@ -62,7 +62,6 @@ export function Contact(){
                                         </p>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>

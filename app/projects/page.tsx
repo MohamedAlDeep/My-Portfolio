@@ -18,7 +18,7 @@ export default async function Projects(){
     //     // project.image
     //     // project.demo.value
     // })
-    console.log(projects)
+  
     return (
         <div>
             <Navbar/>

@@ -9,10 +9,10 @@ export function Navbar(){
     const [isOpen, setIsOpen] = useState(false)
     const navigation = [
         {name: "Home", href: "/"},
-        {name: "About", href: "#about"},
+        {name: "About", href: "/#about"},
         {name: "Projects", href: "/projects"},
         {name: "Blogs", href: "/blogs"},
-        {name: "Contact", href: "#contact"}
+        {name: "Contact", href: "/#contact"}
     ]
     
     return (

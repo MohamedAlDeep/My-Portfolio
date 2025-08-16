@@ -4,38 +4,11 @@ import { Badge } from '@/components/ui/badge'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight, Calendar, Clock } from 'lucide-react'
+import { get_blogs_number } from '@/lib/airtable'
 
-export function Blog(){
-    const blogPosts = [
-        {
-            title: 'Moch Up title',
-            excerpt: 'Exploring how quantum computing will revolutionize problem-solving in the next decade and its implications for various industries.',
-            image: './testlink.png',
-            category: 'Quantum ... ',
-            date: '2024-01-14',
-            readTime: '8 min read',
-            slug: 'future-of-quantum-computing'
-        },
-        {
-            title: 'Building scalable IoT Systems',
-            excerpt: 'Best practices and architectural patterns for creating IoT systems that can handle millions of connected devices',
-            image: './test2link.png',
-            category: 'IoT',
-            date: '2025-08-2',
-            readTime: '10 min read',
-            slug: 'building-scalable-iot-systems'
-        },
-        {
-            title: 'AI Ethics in Modern Development',
-            excerpt: 'A deep dive into the ethical considerations every developer should keep in mind when building AI-powered applications.',
-            image: './ai-mochup-link.png',
-            category: 'AI',
-            date: '2025-08-14',
-            readTime: '6 min read',
-            slug: 'ai-ethics-modern-development'
-        }
-    ]
-
+export async function Blog(){
+    const blogPosts = await get_blogs_number(3)
+    console.log(blogPosts)
     return (
         <section id='blog' className='py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-slate-900/50'>
             <div className='max-w-7xl mx-auto'>
@@ -49,53 +22,61 @@ export function Blog(){
                 </div>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12'>
                     {
-                        blogPosts.map((post, index) => (
+                        blogPosts && blogPosts.length > 0 ? blogPosts.map((post: any, index: number) => (
                             <Card 
-                            key={index}
+                            key={post.slug || index}
                             className='group overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1'
                             >
                                 <div className='relative overflow-hidden'>
-                                    <Image 
-                                    src={''}
-                                    alt={post.title}
-                                    width={400}
-                                    height={200}
-                                    className='w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300'
-                                    />
-                                    <Badge className='absolute top-4 left-4 bg-blue-600 hover:bg-blue-700' >{post.category}</Badge>
+                                    {post.image && (
+                                        <Image 
+                                        src={String(post.image)}
+                                        alt={String(post.title || 'Blog post')}
+                                        width={400}
+                                        height={200}
+                                        className='w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300'
+                                        />
+                                    )}
+                                    <Badge className='absolute top-4 left-4 bg-blue-600 hover:bg-blue-700' >
+                                        {String(post.category || 'General')}
+                                    </Badge>
                                 </div>
                                 <CardHeader>
                                     <CardTitle className='font-heading font-bold text-lg group-hover:text-blue-600 transition-colors line-clamp-2'>
-                                        {post.title}
+                                        {String(post.title || 'Untitled')}
                                     </CardTitle>
                                     <div className='flex items-center gap-4 text-sm text-muted-foreground'>
                                         <div className='flex items-center gap-1'>
                                             <Calendar className='h-4 w-4' />
-                                            {new Date(post.date).toLocaleDateString()}
+                                            {new Date(String(post.date || '')).toLocaleDateString()}
                                         </div>
                                         <div className='flex items-center gap-1'>
                                             <Clock className='h-4 w-4' />
-                                            {post.readTime}
+                                            {String(post.readTime || 'N/A')}
                                         </div>
                                     </div>
                                 </CardHeader>
 
                                 <CardContent className='space-y-4'>
                                     <p className='text-muted-foreground leading-relaxed line-clamp-3'>
-                                        {post.excerpt}
+                                        {String(post.excerpt || 'No excerpt available')}
                                     </p>
                                     <Button
                                     variant='ghost'
                                     className='p-0 h-auto font-semibold text-blue-600 hover:text-sky-500'
                                     asChild
                                     >
-                                        <Link href={`/blog/${post.slug}`}>
+                                        <Link href={`/blogs/${post.slug}`}>
                                             Read More <ArrowRight className='ml-1 h-4 w-4'/>
                                         </Link>
                                     </Button>
                                 </CardContent>
                             </Card>
-                        ))
+                        )) : (
+                            <div className='col-span-full text-center py-12'>
+                                <p className='text-muted-foreground'>No blog posts available at the moment.</p>
+                            </div>
+                        )
                     }
                 </div>
                 <div className='text-center'>
@@ -105,7 +86,7 @@ export function Blog(){
                     className='border-blue-600 text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-950 bg-transparent'
                     asChild
                     >
-                        <Link href='/blog'>
+                        <Link href='/blogs'>
                             View All Posts <ArrowRight className='ml-2 h-5 w-5'/>
                         </Link>
                     </Button>

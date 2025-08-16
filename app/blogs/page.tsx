@@ -18,7 +18,7 @@ export default async function Blogs(){
             <div className='max-w-7xl mx-auto'>
             <div className='text-center mb-16'>
                     <h2 className='font-heading font-black text-3xl sm:text-4xl lg:text-5xl text-foreground mb-6'>
-                        Blog Posts
+                        Posts
                     </h2>
                     <p className='text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed'>
                         Welcome to my thoughts on the latest in science and technology, where I share insights, tutorials, and explorations into the future of innovation.
