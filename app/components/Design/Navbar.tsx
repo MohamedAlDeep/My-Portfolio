@@ -42,14 +42,14 @@ export function Navbar(){
                         )
                         }
                     </nav>
-                    <div className="hidden lg:flex items-center">
+                    {/* <div className="hidden lg:flex items-center">
                         <Button
                         variant="outline"
                         className="border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white transition-all duration-200 bg-transparent"
                         >
                             Download CV
                         </Button>
-                    </div>
+                    </div> */}
                         
                     <Button
                         variant="ghost"
